@@ -1,0 +1,61 @@
+server:
+  port: 18080
+spring:
+  application:
+    name: tanhua-app-server
+  redis:
+    port: 6379
+    host: 192.168.136.160
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.136.160:8848
+dubbo:
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    check: false
+tanhua:
+  default:
+    recommend:
+      users: 2,3,8,10,18,20,24,29,27,32,36,37,56,64,75,88
+  sms:
+    signName: 物流云商
+    templateCode: SMS_106590012
+    accessKey: LTAI4GKgob9vZ53k2SZdyAC7
+    secret: LHLBvXmILRoyw0niRSBuXBZewQ30la
+  oss:
+    accessKey: LTAI5tM8a2LEqpGRsps79VTo
+    secret: ntadAokrqIJP94eGbgIkkjpFZs8VER
+    endpoint: oss-cn-beijing.aliyuncs.com
+    bucketName: yishun-tanhua
+    url: https://yishun-tanhua.oss-cn-beijing.aliyuncs.com/
+  aip:
+    appId: 26963740
+    apiKey: GG8Wic0yX9XOgwfsG1iLozB8
+    secretKey: KfViVVemkvkFoNWLCg6YSE4SoEE2N0Kg
+  huanxin:
+    appkey: 1108220818113079#tanhua
+    clientId: YXA6NBRUgGjwQvGbKH9c2oH8cA
+    clientSecret: YXA66Ag3M9myxvGKKDb3aTOIWvyqqk4
+
+
+# ===================================================================
+# 分布式文件系统FDFS配置
+# ===================================================================
+fdfs:
+  so-timeout: 1500
+  connect-timeout: 600
+  #缩略图生成参数
+  thumb-image:
+    width: 150
+    height: 150
+  #TrackerList参数,支持多个
+  tracker-list: 192.168.136.160:22122
+  web-server-url: http://192.168.136.160:8888/
+
+Spring:
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
